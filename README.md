@@ -1,6 +1,6 @@
 # HTTP/X (RFC)
 
-HTTP/X is a protocol for webapps that enables state and logic to opearate server-side instead of in the browser.
+HTTP/X is a protocol for webapps that enables state and logic to operate server-side instead of in the browser.
 
 ### Table of Contents
 - [Advantages](#advantages)
