@@ -6,7 +6,7 @@ HTTP/X is a protocol for webapps that enables state and logic to opearate server
 - [Advantages](#advantages)
 - [Why a Spec Instead of a Library?](#why-a-spec-instead-of-a-library)
 - [Terminology](#terminology)
-- [Graceful Fallback to HTTP](#graceful fallback to http)
+- [Graceful Fallback to HTTP](#graceful-fallback-to-http)
 - [Bi-directional Protocols](#bi-directional-protocols)
 - [Lifecycle](#lifecycle)
 - [Sentinels](#sentinels)
