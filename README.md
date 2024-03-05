@@ -12,7 +12,7 @@ HTTP/X is a protocol for webapps that enables state and logic to opearate server
 - [Sentinels](#sentinels)
 - [Instruction Set](#instruction-set)
 - [Subroutes](#subroutes)
-- [Known Implmementations](#known-implementations)
+- [Known Implementations](#known-implementations)
 
 ## Advantages
 
@@ -32,4 +32,4 @@ HTTP/X is a protocol for webapps that enables state and logic to opearate server
 
 ## Subroutes
 
-## Known Implmementations
+## Known Implementations
