@@ -85,8 +85,8 @@ HTTP/X is NOT a protocol from swapping HTML partials.  While that is possible, H
 
 The server needs an efficient way to target changes to specific elements in a sea of DOM nodes.  Sentinels are applied transparently so the application developer isn’t forced to use id="..." repeatedly or in ways that are incompatible with styling or repetitive components.  A sentinel is a tiny <script> block that references its prior sibling and saves it in a variable in the DOM’s global space.  
 
-Important!
-Sentinels are not needed for every node – only the ones that can change.
+> [!Important]
+> Sentinels are not needed for every node – only the ones that can change.
 
 Here’s a simplistic example (excluding a few edge cases):
 
