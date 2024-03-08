@@ -22,7 +22,7 @@
     </p>
     <p>
       Think of it like HTTP but in reverse. Instead of the browser driving the
-      communication, HTTP/X puts the server in the driver’s seat.
+      communication, HTTP/X puts the server in the driver's seat.
     </p>
     <h3 id="table-of-contents">Table of Contents</h3>
     <ul>
@@ -37,7 +37,7 @@
       <li><a href="#sentinels">Sentinels</a></li>
       <li><a href="#mutation-instruction-set">Mutation Instruction Set</a></li>
       <li><a href="#layout-reuse">Layout Reuse</a></li>
-      <li><a href="#known-implementations">Known Implementations</a></li>
+      <li><a href="#more-info">More Info</a></li>
     </ul>
     <h2 id="advantages">Advantages</h2>
     <p>HTTP/X brings 4 main benefits:</p>
@@ -46,10 +46,10 @@
         <p>
           <strong>New Languages</strong><br />
           When both browser events and DOM manipulations can be operated
-          server-side, it fully removes your codebase’s dependency on JavaScript
+          server-side, it fully removes your codebase's dependency on JavaScript
           to drive the micro-interactions necessary in any modern webapp. This
           frees developers to choose languages based on their merits, not the
-          browsers’ limitations. (To enhance your language of choice, check out
+          browsers' limitations. (To enhance your language of choice, check out
           <a href="https://zeroscript.org">ZeroScript</a>, syntactic sugar for
           easily templating HTML in any language.)
         </p>
@@ -57,7 +57,7 @@
       <li>
         <p>
           <strong>No API Needed</strong><br />
-          Since the business logic is never downloaded to the browser, there’s
+          Since the business logic is never downloaded to the browser, there's
           no need to fetch data from a separate API thus eliminating an
           additional resource to build and manage.
         </p>
@@ -78,9 +78,9 @@
           <strong>Globally Shared State</strong><br />
           When state must be sent to each individual browser so the UI can react
           to its changes, there will inevitably be a drift in consistency and is
-          (by default) limited to a user’s own local actions. When the state
+          (by default) limited to a user's own local actions. When the state
           lives server-side, reacting to changes made by any source, regardless
-          of who or what initiated it, is trivial to support as it’s the default
+          of who or what initiated it, is trivial to support as it's the default
           programming model.
         </p>
       </li>
@@ -88,8 +88,8 @@
     <h2 id="why-a-spec-">Why a Spec?</h2>
     <p>
       This is NOT intended to be implemented by browsers or engines nor is it a
-      proposal for the HTTP spec itself. The reason it’s not just a simple
-      library is because it’s meant to be implemented across a number of
+      proposal for the HTTP spec itself. The reason it's not just a simple
+      library is because it's meant to be implemented across a number of
       languages. Having a consistent implementation across languages
       <a href="https://rylan.io/zero-new-syntax-to-learn/"
         >reduces framework fatigue</a
@@ -100,9 +100,9 @@
     <ul>
       <li>
         <strong>Connection</strong> - A connection refers to a single WebSocket
-        connection (or other similar protocol’s version of a connection).
+        connection (or other similar protocol's version of a connection).
         Specifically it correlates to a single browser tab or single browser
-        window and isn’t shared across multiple instances.
+        window and isn't shared across multiple instances.
       </li>
       <li>
         <strong>Session</strong> - A session is cookie-based and is shared
@@ -114,9 +114,9 @@
         outside the scope of HTTP/X.
       </li>
       <li>
-        <strong>DOM mutation</strong> - Any change to the browser’s Document
+        <strong>DOM mutation</strong> - Any change to the browser's Document
         Object Model is considered a DOM mutation. Primarily this is done by
-        setting an element’s nodeValue for the sake of precision and performance
+        setting an element's nodeValue for the sake of precision and performance
         but technically also includes HTML partials.
       </li>
       <li>
@@ -161,7 +161,7 @@
       encouraged.
     </p>
     <h2 id="lifecycle">Lifecycle</h2>
-    <svg id="diagram" width="100%" xmlns="http://www.w3.org/2000/svg" style="max-width: 221.3828125px;" viewBox="-48 -48 221.3828125 318.5" aria-roledescription="flowchart-v2" height="318.5" preserveAspectRatio="xMinYMin"><style>#diagram{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#diagram .error-icon{fill:#552222;}#diagram .error-text{fill:#552222;stroke:#552222;}#diagram .edge-thickness-normal{stroke-width:2px;}#diagram .edge-thickness-thick{stroke-width:3.5px;}#diagram .edge-pattern-solid{stroke-dasharray:0;}#diagram .edge-pattern-dashed{stroke-dasharray:3;}#diagram .edge-pattern-dotted{stroke-dasharray:2;}#diagram .marker{fill:#333333;stroke:#333333;}#diagram .marker.cross{stroke:#333333;}#diagram svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#diagram .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#diagram .cluster-label text{fill:#333;}#diagram .cluster-label span,#diagram p{color:#333;}#diagram .label text,#diagram span,#diagram p{fill:#333;color:#333;}#diagram .node rect,#diagram .node circle,#diagram .node ellipse,#diagram .node polygon,#diagram .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#diagram .flowchart-label text{text-anchor:middle;}#diagram .node .label{text-align:center;}#diagram .node.clickable{cursor:pointer;}#diagram .arrowheadPath{fill:#333333;}#diagram .edgePath .path{stroke:#333333;stroke-width:2.0px;}#diagram .flowchart-link{stroke:#333333;fill:none;}#diagram .edgeLabel{background-color:#e8e8e8;text-align:center;}#diagram .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#diagram .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#diagram .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#diagram .cluster text{fill:#333;}#diagram .cluster span,#diagram p{color:#333;}#diagram div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#diagram .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#diagram :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><marker id="diagram_flowchart-pointEnd" class="marker flowchart" viewBox="0 0 10 10" refX="6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="diagram_flowchart-pointStart" class="marker flowchart" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="diagram_flowchart-circleEnd" class="marker flowchart" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="diagram_flowchart-circleStart" class="marker flowchart" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="diagram_flowchart-crossEnd" class="marker cross flowchart" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="diagram_flowchart-crossStart" class="marker cross flowchart" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M50.32,52L47.351,56.167C44.382,60.333,38.443,68.667,35.473,78.542C32.504,88.417,32.504,99.833,32.504,111.25C32.504,122.667,32.504,134.083,34.961,143.239C37.417,152.395,42.331,159.289,44.788,162.737L47.245,166.184" id="L-State-UI-0" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-State LE-UI" style="fill:none;" marker-end="url(#diagram_flowchart-pointEnd)"></path><path d="M87.379,170.5L90.348,166.333C93.318,162.167,99.256,153.833,102.226,143.958C105.195,134.083,105.195,122.667,105.195,111.25C105.195,99.833,105.195,88.417,102.739,79.261C100.282,70.105,95.368,63.211,92.911,59.763L90.455,56.316" id="L-UI-State-0" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-UI LE-State" style="fill:none;" marker-end="url(#diagram_flowchart-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(32.50390625, 111.25)"><g class="label" transform="translate(-32.50390625, -9.25)"><foreignObject width="65.0078125" height="18.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">mutation</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(105.1953125, 111.25)"><g class="label" transform="translate(-20.1875, -9.25)"><foreignObject width="40.375" height="18.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">event</span></div></foreignObject></g></g></g><g class="nodes"><g class="node default default flowchart-label" id="flowchart-State-8" data-node="true" data-id="State" transform="translate(68.849609375, 26)"><rect class="basic label-container" style="" rx="0" ry="0" x="-35.4765625" y="-26" width="70.953125" height="52"></rect><g class="label" style="" transform="translate(-27.9765625, -18.5)"><rect></rect><foreignObject width="55.953125" height="37"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">State<br>(server)</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-UI-9" data-node="true" data-id="UI" transform="translate(68.849609375, 196.5)"><rect class="basic label-container" style="" rx="0" ry="0" x="-41.8984375" y="-26" width="83.796875" height="52"></rect><g class="label" style="" transform="translate(-34.3984375, -18.5)"><rect></rect><foreignObject width="68.796875" height="37"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">UI<br>(browser)</span></div></foreignObject></g></g></g></g></g></svg>
+<svg id="diagram" width="100%" xmlns="http://www.w3.org/2000/svg" style="max-width: 221.3828125px;" viewBox="-48 -48 221.3828125 318.5" aria-roledescription="flowchart-v2" height="318.5" preserveAspectRatio="xMinYMin"><style>#diagram{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#diagram .error-icon{fill:#552222;}#diagram .error-text{fill:#552222;stroke:#552222;}#diagram .edge-thickness-normal{stroke-width:2px;}#diagram .edge-thickness-thick{stroke-width:3.5px;}#diagram .edge-pattern-solid{stroke-dasharray:0;}#diagram .edge-pattern-dashed{stroke-dasharray:3;}#diagram .edge-pattern-dotted{stroke-dasharray:2;}#diagram .marker{fill:#333333;stroke:#333333;}#diagram .marker.cross{stroke:#333333;}#diagram svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#diagram .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#diagram .cluster-label text{fill:#333;}#diagram .cluster-label span,#diagram p{color:#333;}#diagram .label text,#diagram span,#diagram p{fill:#333;color:#333;}#diagram .node rect,#diagram .node circle,#diagram .node ellipse,#diagram .node polygon,#diagram .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#diagram .flowchart-label text{text-anchor:middle;}#diagram .node .label{text-align:center;}#diagram .node.clickable{cursor:pointer;}#diagram .arrowheadPath{fill:#333333;}#diagram .edgePath .path{stroke:#333333;stroke-width:2.0px;}#diagram .flowchart-link{stroke:#333333;fill:none;}#diagram .edgeLabel{background-color:#e8e8e8;text-align:center;}#diagram .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#diagram .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#diagram .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#diagram .cluster text{fill:#333;}#diagram .cluster span,#diagram p{color:#333;}#diagram div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#diagram .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#diagram :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><marker id="diagram_flowchart-pointEnd" class="marker flowchart" viewBox="0 0 10 10" refX="6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="diagram_flowchart-pointStart" class="marker flowchart" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="diagram_flowchart-circleEnd" class="marker flowchart" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="diagram_flowchart-circleStart" class="marker flowchart" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="diagram_flowchart-crossEnd" class="marker cross flowchart" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="diagram_flowchart-crossStart" class="marker cross flowchart" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M50.32,52L47.351,56.167C44.382,60.333,38.443,68.667,35.473,78.542C32.504,88.417,32.504,99.833,32.504,111.25C32.504,122.667,32.504,134.083,34.961,143.239C37.417,152.395,42.331,159.289,44.788,162.737L47.245,166.184" id="L-State-UI-0" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-State LE-UI" style="fill:none;" marker-end="url(#diagram_flowchart-pointEnd)"></path><path d="M87.379,170.5L90.348,166.333C93.318,162.167,99.256,153.833,102.226,143.958C105.195,134.083,105.195,122.667,105.195,111.25C105.195,99.833,105.195,88.417,102.739,79.261C100.282,70.105,95.368,63.211,92.911,59.763L90.455,56.316" id="L-UI-State-0" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-UI LE-State" style="fill:none;" marker-end="url(#diagram_flowchart-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(32.50390625, 111.25)"><g class="label" transform="translate(-32.50390625, -9.25)"><foreignObject width="65.0078125" height="18.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">mutation</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(105.1953125, 111.25)"><g class="label" transform="translate(-20.1875, -9.25)"><foreignObject width="40.375" height="18.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">event</span></div></foreignObject></g></g></g><g class="nodes"><g class="node default default flowchart-label" id="flowchart-State-8" data-node="true" data-id="State" transform="translate(68.849609375, 26)"><rect class="basic label-container" style="" rx="0" ry="0" x="-35.4765625" y="-26" width="70.953125" height="52"></rect><g class="label" style="" transform="translate(-27.9765625, -18.5)"><rect></rect><foreignObject width="55.953125" height="37"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">State<br>(server)</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-UI-9" data-node="true" data-id="UI" transform="translate(68.849609375, 196.5)"><rect class="basic label-container" style="" rx="0" ry="0" x="-41.8984375" y="-26" width="83.796875" height="52"></rect><g class="label" style="" transform="translate(-34.3984375, -18.5)"><rect></rect><foreignObject width="68.796875" height="37"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">UI<br>(browser)</span></div></foreignObject></g></g></g></g></g></svg>
     <p>
       HTTP/X leverages
       <a href="https://developer.android.com/jetpack/compose/architecture#udf"
@@ -231,7 +231,7 @@
     </p>
     <p>
       In these use cases, there is no opportunity to establish a bidirectional
-      channel for “follow up DOM mutations.” This means it’s not possible to
+      channel for “follow up DOM mutations.” This means it's not possible to
       first send a non-blocking response to the initial GET and follow up with
       DOM mutations once async data becomes available. Instead, in HTTP-only
       mode the initial GET must wait until all the data needed for rendering a
@@ -249,10 +249,10 @@
     <p>
       The server needs an efficient way to target changes to specific elements
       in a sea of DOM nodes. Sentinels are applied transparently so the
-      application developer isn’t forced to use id=&quot;...&quot; repeatedly or
+      application developer isn't forced to use id=&quot;...&quot; repeatedly or
       in ways that are incompatible with styling or repetitive components. A
       sentinel is a tiny <code>&lt;script&gt;</code> block that references its
-      prior sibling and saves it in a variable in the DOM’s global space.
+      prior sibling and saves it in a variable in the DOM's global space.
     </p>
     <blockquote>
       <p>
@@ -260,7 +260,7 @@
         that can change.
       </p>
     </blockquote>
-    <p>Here’s a simplistic example (excluding a few edge cases):</p>
+    <p>Here's a simplistic example (excluding a few edge cases):</p>
     <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">register</span>(<span class="hljs-params">id</span>) </span>{
         <span class="hljs-keyword">this</span>[id] = <span class="hljs-built_in">document</span>.currentScript.previousSibling;
@@ -314,7 +314,7 @@
     <p>
       HTTP/X includes a unique way to reuse documents of the same layout between
       multiple GET requests without needing to rebuild the entire DOM. Granted,
-      a browser’s initial GET request to any URL must return regular, old
+      a browser's initial GET request to any URL must return regular, old
       fashioned, vanilla HTML with a 200 HTTP status code. But once it
       establishes a bidirectional transport for communication, all subsequent
       GET requests to a route using the same shared layout can take a different
@@ -343,11 +343,11 @@
     </p>
     <p>
       Please note that proper UX might dictate that in some cases, while a
-      layout CAN be shared, sometimes it shouldn’t. An example of this is
+      layout CAN be shared, sometimes it shouldn't. An example of this is
       lateral moves to the same routes of different IDs, like from
       example.com/products/1 to example.com/products/2. The user might be
       scrolled way down into the related products section and click on
-      product/2. In this use case, the layout shouldn’t be reused, nor does
+      product/2. In this use case, the layout shouldn't be reused, nor does
       scrolling to the top fix the expected behavior. Most mature design systems
       would dictate that these layouts be transitioned using either a
       <a
@@ -357,10 +357,34 @@
       approach.
     </p>
     <p>
-      The specifics of this configuration is outside the scope of HTTP/X; it’s
+      The specifics of this configuration is outside the scope of HTTP/X; it's
       an implementation detail for the application framework.
     </p>
-    <h2 id="known-implementations">Known Implementations</h2>
+    <h2 id="more-info">More Info</h2>
+    <h3 id="engage">Engage</h3>
+    <ul>
+      <li>
+        <p>
+          Contribute:<br />
+          <a href="https://github.com/schmylan/httpx"
+            >github.com/schmylan/httpx</a
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          Follow along:<br />
+          <a href="https://twitter.com/httpx_org">@httpx_org</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          The origin story:<br />
+          <a href="https://rylan.io/tag/zero">Distilling the Web to Zero</a>
+        </p>
+      </li>
+    </ul>
+    <h3 id="known-implementations">Known Implementations</h3>
     <p>Below is a running list of known guest languages.</p>
     <table>
       <thead>

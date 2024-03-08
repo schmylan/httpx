@@ -16,7 +16,7 @@ Think of it like HTTP but in reverse.  Instead of the browser driving the commun
 - [Sentinels](#sentinels)
 - [Mutation Instruction Set](#mutation-instruction-set)
 - [Layout Reuse](#layout-reuse)
-- [Known Implementations](#known-implementations)
+- [More Info](#more-info)
 
 ## Advantages
 
@@ -157,7 +157,20 @@ Please note that proper UX might dictate that in some cases, while a layout CAN 
 
 The specifics of this configuration is outside the scope of HTTP/X; it’s an implementation detail for the application framework.
 
-## Known Implementations
+## More Info
+
+### Engage
+
+- Contribute:<br />
+[github.com/schmylan/httpx](https://github.com/schmylan/httpx)
+
+- Follow along:<br />
+[@httpx_org](https://twitter.com/httpx_org)
+
+- The origin story:<br />
+[Distilling the Web to Zero](https://rylan.io/tag/zero)
+
+### Known Implementations
 
 Below is a running list of known guest languages.
 
