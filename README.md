@@ -119,10 +119,45 @@ Register an attribute:
 ```
 
 > [!Note]
-> While HTTP/X is made to work seamlessly with [ZeroScript](https://zeroscript.org), it is possible to retrofit it into other preexisting templating engines.
+> While HTTP/X is made to work seamlessly with [ZeroScript](https://zeroscript.org), it is possible to retrofit the protocol into other preexisting templating engines.
 
 ## Mutation Instruction Set
 
+The instruction set needed for mutating the DOM from the server-side is small – only 3 instructions.  Here are the formats the server responds with which directly targets functions already in the DOM.
+
+- Element values
+```json
+{ "id": "slot0", "value": "anything" }
+```
+
+- Element attributes
+```json
+{ "id": "slot1", "attribute": "anything" }
+```
+
+- HTML partials
+```json
+{ "id": "slot2", "html": "<p>any <b>HTML</b> string<p>" }
+```
+
 ## Layout Reuse
 
+HTTP/X includes a unique way to reuse documents of the same layout between multiple GET requests without needing to rebuild the entire DOM.  Granted, a browser’s initial GET request to any URL must return regular, old fashioned, vanilla HTML with a 200 HTTP status code.  But once it establishes a bidirectional transport for communication, all subsequent GET requests to a route using the same shared layout can take a different approach.
+
+To accomplish this, the server must respond with a 204 - No Content status code.  This indicates that the browser should not replace the current page with a new page.  The server can then alter the UI state held in its memory, which may or may not trigger DOM mutations to be pushed to the browser over the bidirectional channel.
+
+For example, imagine starting by visiting example.com/posts which would return basic HTML with a 200 status code, and establish a bidirectional channel with the server.  If the user then clicked on example.com/posts/featured, the server would know, since it already has a dedicated connection established for this request and that it needs to transition between two states of the same layout, it could respond with a 204 No Content, and then adjust its UI state such that only the featured posts are being shown.  
+
+This has the nice side effect of treating URLs like “bookmarks for state” instead of “pointers to documents.”
+
+Please note that proper UX might dictate that in some cases, while a layout CAN be shared, sometimes it shouldn’t.  An example of this is lateral moves to the same routes of different IDs, like from example.com/products/1 to example.com/products/2. The user might be scrolled way down into the related products section and click on product/2.  In this use case, the layout shouldn’t be reused, nor does scrolling to the top fix the expected behavior.  Most mature design systems would dictate that these layouts be transitioned using either a [lateral or forward-and-backward](https://m3.material.io/styles/motion/transitions/transition-patterns) approach.
+
+The specifics of this configuration is outside the scope of HTTP/X; it’s an implementation detail for the application framework.
+
 ## Known Implementations
+
+Below is a running list of known guest languages.
+
+| Language | Project |
+|---|---|
+| C# | [github.com/xui/xero](https://github.com/xui/xero) |
