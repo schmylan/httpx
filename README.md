@@ -81,6 +81,46 @@ In these use cases, there is no opportunity to establish a bidirectional channel
 
 ## Sentinels
 
+HTTP/X is NOT a protocol from swapping HTML partials.  While that is possible, HTTP/X is primarily focused on replacing individual nodeValues.  The goal is to provide the maximum level of performance and precision.
+
+The server needs an efficient way to target changes to specific elements in a sea of DOM nodes.  Sentinels are applied transparently so the application developer isn’t forced to use id="..." repeatedly or in ways that are incompatible with styling or repetitive components.  A sentinel is a tiny <script> block that references its prior sibling and saves it in a variable in the DOM’s global space.  
+
+Important!
+Sentinels are not needed for every node – only the ones that can change.
+
+Here’s a simplistic example (excluding a few edge cases):
+
+```html
+<script>
+    function register(id) {
+        this[id] = document.currentScript.previousSibling;
+    }
+</script>
+```
+
+
+Register a tag:
+
+```html
+<p>This is a paragraph.</p><script>register(“slot0”)</script>
+```
+
+Register text:
+To target a substring of text inside a larger text node, you must isolate it with a “blank” node so that its nodeValue can be updated in isolation to the full body of text.
+
+```html
+<p>Greetings <!-- -->human<script>register(“slot1”)</script>, and welcome!</p>
+```
+
+Register an attribute:
+
+```html
+<input type=”text” value=”” /><script>register(“slot2”, “value”)</script>
+```
+
+> [!Note]
+> While HTTP/X is made to work seamlessly with [ZeroScript](https://zeroscript.org), it is possible to retrofit it into other preexisting templating engines.
+
 ## Mutation Instruction Set
 
 ## Layout Reuse
