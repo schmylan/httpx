@@ -23,10 +23,13 @@ Think of it like HTTP but in reverse.  Instead of the browser driving the commun
 HTTP/X brings 4 main benefits:
 1. **New Languages**<br />
 When both browser events and DOM manipulations can be operated server-side, it fully removes your codebase’s dependency on JavaScript to drive the micro-interactions necessary in any modern webapp. This frees developers to choose languages based on their merits, not the browsers’ limitations.  (To enhance your language of choice, check out [ZeroScript](https://zeroscript.org), syntactic sugar for easily templating HTML in any language.)
+
 2. **No API Needed**<br />
 Since the business logic is never downloaded to the browser, there’s no need to fetch data from a separate API thus eliminating an additional resource to build and manage.
+
 3. **Zero Payload Issues**<br />
 The amount of JavaScript needed to run HTTP/X is not only shockingly tiny, it stays the exact same size, even if the complexity of your webapp grew to hundreds of megabytes (as native apps often do).  This lifts the burden of toiling over optimizations like code splitting, etc and eliminates needing to compromise delightful UX in the name of lighthouse scores.
+
 4. **Globally Shared State**<br />
 When state must be sent to each individual browser so the UI can react to its changes, there will inevitably be a drift in consistency and is (by default) limited to a user’s own local actions.  When the state lives server-side, reacting to changes made by any source, regardless of who or what initiated it, is trivial to support as it’s the default programming model.
 
@@ -83,7 +86,7 @@ In these use cases, there is no opportunity to establish a bidirectional channel
 
 HTTP/X is NOT a protocol from swapping HTML partials.  While that is possible, HTTP/X is primarily focused on replacing individual nodeValues.  The goal is to provide the maximum level of performance and precision.
 
-The server needs an efficient way to target changes to specific elements in a sea of DOM nodes.  Sentinels are applied transparently so the application developer isn’t forced to use id="..." repeatedly or in ways that are incompatible with styling or repetitive components.  A sentinel is a tiny <script> block that references its prior sibling and saves it in a variable in the DOM’s global space.  
+The server needs an efficient way to target changes to specific elements in a sea of DOM nodes.  Sentinels are applied transparently so the application developer isn’t forced to use id="..." repeatedly or in ways that are incompatible with styling or repetitive components.  A sentinel is a tiny `<script>` block that references its prior sibling and saves it in a variable in the DOM’s global space.  
 
 > [!Important]
 > Sentinels are not needed for every node – only the ones that can change.
