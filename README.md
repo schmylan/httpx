@@ -176,4 +176,4 @@ Below is a running list of known guest languages.
 
 | Language | Project |
 |---|---|
-| C# | [github.com/xui/xero](https://github.com/xui/xero) |
+| C# | [github.com/xui/xui](https://github.com/xui/xui) |
