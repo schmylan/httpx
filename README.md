@@ -164,16 +164,13 @@ The specifics of this configuration is outside the scope of HTTP/X; it’s an im
 - Contribute:<br />
 [github.com/schmylan/httpx](https://github.com/schmylan/httpx)
 
-- Follow along:<br />
-[@httpx_org](https://twitter.com/httpx_org)
-
 - The origin story:<br />
 [Distilling the Web to Zero](https://rylan.io/tag/zero)
 
 ### Known Implementations
 
-Below is a running list of known guest languages.
+Reference implementation(s):
 
 | Language | Project |
 |---|---|
-| C# | [github.com/xui/xui](https://github.com/xui/xui) |
+| C# | [github.com/web4foundation/web4-dotnet](https://github.com/web4foundation/web4-dotnet) |
