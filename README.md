@@ -1,5 +1,8 @@
 # HTTP/X (RFC)
 
+>[!NOTE]
+> This RFC is now closed but led to the implementation of the Keyholes engine at [The Web4 Foundation](https://github.com/web4foundation).
+
 HTTP/X is a protocol for webapps that enables state and logic to operate server-side instead of in the browser.
 
 The X is meant to represent the marriage of two concepts: bidirectional communication + a predefined instruction set designed for efficient manipulation of the DOM from over the wire.
